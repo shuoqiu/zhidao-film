@@ -1,0 +1,12 @@
+<!--pages/search/search.wxml-->
+<view class="content">
+    <view class="top">
+        <input class="srk" placeholder="{{placeholder}}" type="text" placeholder-style="{{color}}" maxlength="{{maxlength}}" focus="true" bindinput="bindInputKey" />
+        <view class="btn" bindtap="searchMovies">完 成</view>
+    </view>
+    <view class="inputValue">您查找的内容是: {{inputValue}}</view>
+<view class="separator"></view>
+
+<import src="../template/movietpl.wxml" />
+<template is="movies" data="{{movies}}" />
+</view>

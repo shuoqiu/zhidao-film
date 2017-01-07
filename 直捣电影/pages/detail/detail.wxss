@@ -1,0 +1,55 @@
+.content {
+    min-height: 100%;
+    min-width: 100%;
+    background-color: #3a3a3a;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.img image {
+    padding-top: 10px;
+}
+
+.summary {
+    margin: 10px;
+}
+
+.summaryContent {
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.text {
+    color: white;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.castContent {
+    display: flex;
+    flex-wrap: row wrap;
+    justify-content: space-around;
+}
+
+.actorIntroduction{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.actorIntroduction image {
+    height: 240rpx;
+    width: 160rpx;
+    padding: 0px 13rpx 0px 13rpx;
+}
+
+.actorName {
+    color: white;
+    font-size: 14px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+

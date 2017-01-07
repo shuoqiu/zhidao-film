@@ -1,0 +1,23 @@
+<!--pages/detail/detail.wxml-->
+<view class="content">
+    
+    <view class="img">
+        <image src="{{movie.images.large}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="summary">
+        <view class="summaryContent">剧情概要: {{movie.summary}}</view>
+    </view>
+
+    <view class="casts">
+        <view class="text">{{"演员剧照:"}}</view>
+        <view class="castContent">
+            <block wx:for="{{movie.casts}}">
+                <view class="actorIntroduction">
+                    <image src="{{item.avatars.medium}}" class="castPhoto" mode="aspectFit"></image>
+                    <text class="actorName">{{item.name}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

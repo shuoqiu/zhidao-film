@@ -1,0 +1,22 @@
+
+<!--pages/main/main.wxml-->
+<view class="content">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" style="width:100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="separator"></view>
+
+    <import src="../template/movietpl"/>
+    <template is="movies" data="{{movies}}"/>
+  </view>
+
+  <view class="bodyLoading">
+    <loading hidden="{{hidden}}" bindchange="{{loadingChange}}">
+        拼命加载中...
+    </loading>
+  </view>
