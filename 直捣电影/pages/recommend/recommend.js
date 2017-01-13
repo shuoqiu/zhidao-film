@@ -100,5 +100,12 @@ onReachBottom:function(){
         // complete
       }
     })
-  }
+  },
+  onShareAppMessage: function(){
+     return {
+       title: '推荐电影',
+       desc: '这儿有一波推荐的好电影，你是来还是不来呢？😕',
+       path: '/pages/recommend/recommend'
+     }
+   }
 })

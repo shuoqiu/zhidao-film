@@ -41,7 +41,6 @@ Page({
         var name = page.data.inputValue;
         wx.request({
           url: 'https://api.douban.com/v2/movie/search?q='+name+'&count='+page.data.count,
-          url: 'https://api.douban.com/v2/movie/search?tag='+name+'&count='+page.data.count,
           data: {},
           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
           header: {'Content-Type':'json'}, // 设置请求的 header
@@ -88,39 +87,47 @@ Page({
       });
       wx.request({
         url: 'https://api.douban.com/v2/movie/search?q='+page.data.inputValue+'&count='+page.data.count + '&start='+page.data.start,
-        url: 'https://api.douban.com/v2/movie/search?tag='+page.data.inputValue+'&count='+page.data.count + '&start='+page.data.start,
         data: {},
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         header: {'Content-Type': 'json'}, // 设置请求的 header
         success: function(res){
           // success
-          var subjects = res.data.subjects;
-          subjectUtil.processSubjects(subjects);
-          var movies = wx.getStorageSync('movies');
-          movies = movies.concat(subjects);
-          if(subjects.length!=0){
-              page.setData({
-                movies: movies
-            });
-            wx.hideNavigationBarLoading();
-          }else{
-            wx.hideNavigationBarLoading();
-            wx.showToast({
-              title: '没内容啦',
-              icon: 'success',
-              duration: 1500
-            });
-          //   if(page.data.inputValue == null){
-          //     setTimeout(function(){
-          //       wx.hideToast();
-          //     },0)
-          // }
-          }
-          try{
-            wx.setStorageSync('movies', movies);
-          }catch(e){
-            console.warn(e);
-          }
+          if(page.data.start<=301){
+            var subjects = res.data.subjects;
+            subjectUtil.processSubjects(subjects);
+            var movies = wx.getStorageSync('movies');
+            movies = movies.concat(subjects);
+            if(subjects.length!=0){
+                page.setData({
+                  movies: movies
+              });
+              wx.hideNavigationBarLoading();
+            }else{
+              wx.hideNavigationBarLoading();
+              wx.showToast({
+                title: '没内容啦',
+                icon: 'success',
+                duration: 1500
+              });
+            //   if(page.data.inputValue == null){
+            //     setTimeout(function(){
+            //       wx.hideToast();
+            //     },0)
+            // }
+            }
+            try{
+              wx.setStorageSync('movies', movies);
+            }catch(e){
+              console.warn(e);
+            }
+            }else{
+              wx.hideNavigationBarLoading();
+              wx.showToast({
+                title: '没内容啦',
+                icon: 'success',
+                duration: 1500
+              });
+            }
         },
         fail: function() {
           // fail
@@ -129,5 +136,13 @@ Page({
           // complete
         }
       })
-    }
+    // },
+    // onShareAppMessage: function(){
+    //   var page = this;
+    //   return {
+    //     title: '刚刚搜到的电影',
+    //     desc: '这是我搜索到的内容，你也看一下吧！',
+    //     path: '/pages/search/search?inputValue=' + page .data.inputValue 
+    //   }
+     }
 })

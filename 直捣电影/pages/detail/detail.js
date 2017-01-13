@@ -49,5 +49,13 @@ Page({
         // complete
       }
     })
+  },
+  onShareAppMessage: function(){
+    var page = this;
+    return {
+      title: page.data.movie.title,
+      desc: page.data.movie.summary,
+      path: '/pages/detail/detail?id=' + page.data.movie.id
+    }
   }
 })

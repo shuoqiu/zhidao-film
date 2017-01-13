@@ -99,5 +99,12 @@ Page({
         // complete
       }
     })
+   },
+   onShareAppMessage: function(){
+     return {
+       title: '热映电影',
+       desc: '我正在看热映的电影，你也一起来呀！',
+       path: '/pages/main/main'
+     }
    }
 })
