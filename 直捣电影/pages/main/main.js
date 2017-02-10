@@ -16,8 +16,27 @@ Page({
     count: 10
   },
   onLoad:function(e){
+    this.judgeNetworkType();
     this.loadMovie();
     console.log(e);
+  },
+  judgeNetworkType:function(){
+    var that = this;
+    wx.getNetworkType({
+      success: function(res) {
+        if(res.networkType === 'none'){
+          that.setData({
+            hidden: true
+          });
+          wx.showToast({
+            title: "请连接您的网络",
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          })
+        }
+      }
+    });
   },
   detail:function(e){
     getApp().detail(e);

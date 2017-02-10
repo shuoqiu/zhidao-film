@@ -3,7 +3,8 @@
     "pages/main/main",
     "pages/recommend/recommend",
     "pages/search/search",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/my/my"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -34,6 +35,12 @@
       "text": "查询电影",
       "iconPath": "images/search-1.png",
       "selectedIconPath": "images/search.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "images/my.png",
+      "selectedIconPath": "images/my-selected.png"
     }]
   }
 }
