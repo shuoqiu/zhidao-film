@@ -4,7 +4,7 @@
   <swiper class="swiper" indicator-color="rgba(255,255,255,.3)" indicator-active-color="rgba(255,255,255,.8)" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" catchtap="toOtherApp">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="{{item.img}}" class="slide-image" style='width:100%;' mode='widthFix' data-postid="{{item.id}}"/>
+        <image src="{{item.img}}" class="slide-image" style='width:100%; height:100%;' mode='scaleToFill' data-postid="{{item.id}}"/>
       </swiper-item>
     </block>
   </swiper>

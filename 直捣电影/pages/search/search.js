@@ -15,6 +15,9 @@ Page({
     wx.setNavigationBarTitle({
       title: "搜索电影"
     });
+    this.setData({
+      movies: wx.getStorageSync('movies')
+    });
   },
   onReady:function(){
     // 页面渲染完成

@@ -72,6 +72,8 @@ Page({
       success: function(res){
         var subjects=res.data.subjects;
         subjectUtil.processSubjects(subjects);
+        //为搜索页面临时展示
+        wx.setStorageSync('initMovies', subjects);
         page.setData({
           movies:subjects,
           hidden:true
