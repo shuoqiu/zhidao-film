@@ -1,7 +1,9 @@
 var subjectUtitle = require("../../utils/subjectUtil.js");
 // pages/detail/detail.js
 Page({
-  data:{},
+  data:{
+    hidden: false
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   //  this.detailsData();
@@ -25,7 +27,7 @@ Page({
     //var id = wx.getStorageSync('movieId');
     wx.request({
       //url: 'https://api.douban.com/v2/movie/subject/' + id,
-      url: 'https://api.douban.com/v2/movie/subject/' + movieId,
+      url: 'https://douban.uieee.com/v2/movie/subject/' + movieId,
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
@@ -36,7 +38,8 @@ Page({
         var subject = res.data;
         subjectUtitle.processSubject(subject);
         page.setData({
-        movie: subject
+        movie: subject,
+        hidden: true
         });
         wx.setNavigationBarTitle({
           title: subject.title

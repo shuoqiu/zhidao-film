@@ -1,16 +1,15 @@
 
 <!--pages/main/main.wxml-->
 <view class="content">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper class="swiper" indicator-color="rgba(255,255,255,.3)" indicator-active-color="rgba(255,255,255,.8)" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" catchtap="toOtherApp">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" style="width:100%" />
+        <image src="{{item.img}}" class="slide-image" style='width:100%;' mode='widthFix' data-postid="{{item.id}}"/>
       </swiper-item>
     </block>
   </swiper>
 
   <view class="separator"></view>
-
     <import src="../template/movietpl"/>
     <template is="movies" data="{{movies}}"/>
   </view>

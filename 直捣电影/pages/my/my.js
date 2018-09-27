@@ -25,5 +25,18 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+  toOtherApp: function() {
+    wx.navigateToMiniProgram({
+      appId: 'wxe2aebf565b1a4d4e',
+      // path: 'pages/theory_introduce/theory_introduce',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'developer',
+      success(res) {
+        console.log("跳转成功");
+      }
+    })
   }
 })

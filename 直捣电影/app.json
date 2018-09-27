@@ -3,20 +3,19 @@
     "pages/main/main",
     "pages/recommend/recommend",
     "pages/search/search",
-    "pages/detail/detail",
-    "pages/my/my"
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#2B2B2B",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "直捣电影",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "color": "#dddddd",
+    "color": "#b8b8b8",
     "selectedColor": "#3cc51f",
-    "borderStyle": "black",
-    "backgroundColor": "#2b2b2b",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
     "list": [{
       "pagePath": "pages/main/main",
       "text": "影院热映",
@@ -35,12 +34,6 @@
       "text": "查询电影",
       "iconPath": "images/search-1.png",
       "selectedIconPath": "images/search.png"
-    },
-    {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "images/my.png",
-      "selectedIconPath": "images/my-selected.png"
     }]
   }
 }

@@ -1,24 +1,43 @@
 var subjectUtil = require("../../utils/subjectUtil.js");
+var Bmob = require('../../utils/bmob.js');
 // pages/main/main.js
+var app = getApp();
 Page({
   data: {
-    imgUrls: [
-      '../../images/001.jpg',
-      '../../images/002.jpg',
-      '../../images/003.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
-    duration: 1000,
+    duration: 500,
     hidden: false,
+    show: false,
     start: 1,
     count: 10
   },
   onLoad:function(e){
     this.judgeNetworkType();
     this.loadMovie();
-    console.log(e);
+    
+    var that = this;
+    var miniProgram = Bmob.Object.extend("more_MiniProgram");
+    var query = new Bmob.Query(miniProgram);
+    query.find({
+      success: function (results) {
+        // console.log(results[0].get("adImgUrl"));
+        var adImgUrlArr = new Array();
+        for(var i=0; i<results.length; i++) {
+          adImgUrlArr = adImgUrlArr.concat(results[i].get("id_url"));
+        }
+        // console.log(adImgUrlArr);
+        that.setData({
+          imgUrls: adImgUrlArr
+        });
+      },
+      error: function (error) {
+        console.log("查询失败" + error.code + " " + error.message);
+      }
+    });
+
   },
   judgeNetworkType:function(){
     var that = this;
@@ -44,7 +63,7 @@ Page({
   loadMovie:function(){
     var page=this;
     wx.request({
-      url: 'https://api.douban.com/v2/movie/in_theaters?count=' + page.data.count,
+      url: 'https://douban.uieee.com/v2/movie/in_theaters?count=' + page.data.count,
       data: {movies:[]},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
@@ -79,7 +98,7 @@ Page({
       hidden: false
     });
     wx.request({
-     url: 'https://api.douban.com/v2/movie/in_theaters?count=' + page.data.count + '&start=' + page.data.start,
+      url: 'https://douban.uieee.com/v2/movie/in_theaters?count=' + page.data.count + '&start=' + page.data.start,
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {'Content-Type': 'json'}, // 设置请求的 header
@@ -119,6 +138,44 @@ Page({
       }
     })
    },
+  toOtherApp:function(event) {
+    var that = this;
+    var imgId = event.target.dataset.postid; 
+    // console.log(event.target.dataset.postid);
+    var miniProgram = Bmob.Object.extend("more_MiniProgram");
+    var query = new Bmob.Query(miniProgram);
+    query.find({
+      success: function (results) {
+        // console.log(results[0].get("adImgUrl"));
+        // var adImgUrlArr = new Array();
+        for (var i = 0; i < results.length; i++) {
+          if (imgId == results[i].get("id_url").id){
+            wx.navigateToMiniProgram({
+              appId: results[i].get("appid"),
+              // path: 'pages/theory_introduce/theory_introduce',
+              extraData: {
+                foo: 'bar'
+              },
+              envVersion: 'developer',
+              success(res) {
+                console.log("跳转成功");
+              }
+            })
+          }
+        }
+        
+      },
+      error: function (error) {
+        console.log("查询失败" + error.code + " " + error.message);
+      }
+    });
+  },
+  // hiddenAd:function() {
+  //   var that = this;
+  //   that.setData({
+  //     show: 'true'
+  //   });
+  // },
    onShareAppMessage: function(){
      return {
        title: '热映电影',

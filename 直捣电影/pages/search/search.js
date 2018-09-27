@@ -3,7 +3,7 @@ var subjectUtil=require("../../utils/subjectUtil.js");
 Page({
   data:{
     placeholder: '请输入要查找的电影/演员/导演',
-    color: 'gray',
+    confirm: 'search', 
     maxlength: -1,
     inputValue: '',
     movies: [],
@@ -40,7 +40,7 @@ Page({
         wx.showNavigationBarLoading();
         var name = page.data.inputValue;
         wx.request({
-          url: 'https://api.douban.com/v2/movie/search?q='+name+'&count='+page.data.count,
+          url: 'https://douban.uieee.com/v2/movie/search?q='+name+'&count='+page.data.count,
           data: {},
           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
           header: {'Content-Type':'json'}, // 设置请求的 header
@@ -86,7 +86,7 @@ Page({
         start: start
       });
       wx.request({
-        url: 'https://api.douban.com/v2/movie/search?q='+page.data.inputValue+'&count='+page.data.count + '&start='+page.data.start,
+        url: 'https://douban.uieee.com/v2/movie/search?q='+page.data.inputValue+'&count='+page.data.count + '&start='+page.data.start,
         data: {},
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         header: {'Content-Type': 'json'}, // 设置请求的 header

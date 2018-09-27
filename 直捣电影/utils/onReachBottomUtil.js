@@ -6,7 +6,7 @@ function pullLoad(){
       hidden: false
     });
     wx.request({
-      url: 'https://api.douban.com/v2/movie/in_theaters?count=' + page.data.count + '&start=' + page.data.start,
+      url: 'https://douban.uieee.com/v2/movie/in_theaters?count=' + page.data.count + '&start=' + page.data.start,
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {'Content-Type': 'json'}, // 设置请求的 header

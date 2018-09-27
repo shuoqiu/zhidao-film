@@ -1,6 +1,9 @@
 /**app.wxss**/
 page{
   height: 100%;
+  /* background-color: #3a3a3a; */
+  background-color: #ffffff;
+  font-family: "KaiTi","STKaiti","KaiTi_GB2312","STXingkai";
 }
 .container {
   height: 100%;

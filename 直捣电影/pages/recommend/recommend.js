@@ -35,7 +35,7 @@ Page({
   loadMovie:function(){
     var page = this;
   wx.request({
-    url: 'https://api.douban.com/v2/movie/top250',
+    url: 'https://douban.uieee.com/v2/movie/top250',
     data: {},
     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     header: {
@@ -66,7 +66,7 @@ onReachBottom:function(){
       hidden: false
     });
     wx.request({
-      url: 'https://api.douban.com/v2/movie/top250?count=' + page.data.count + '&start=' + page.data.start,
+      url: 'https://douban.uieee.com/v2/movie/top250?count=' + page.data.count + '&start=' + page.data.start,
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {'Content-Type': 'json'}, // 设置请求的 header
