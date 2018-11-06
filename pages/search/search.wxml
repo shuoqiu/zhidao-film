@@ -1,0 +1,14 @@
+<!--pages/search/search.wxml-->
+<view class="content">
+  <!-- <view class='header'> -->
+    <view class="header-top">
+      <view class='icon_search'><icon type='search' size='20' color='#d2d2d2'></icon></view>
+      <input class="srk" placeholder="{{placeholder}}" type="text" placeholder-style="color:#d2d2d2; font-size:10pt; text-align:left;" maxlength="{{maxlength}}" focus="true" bindinput="bindInputKey" confirm-type="{{confirm}}" bindconfirm='searchMovies' />
+    <!-- <view class="inputValue">您查找的内容是: {{inputValue}}</view> -->
+    </view>
+  <!-- </view> -->
+  <view class="separator"></view>
+
+<import src="../template/movietpl.wxml" />
+<template is="movies" data="{{movies}}" />
+</view>

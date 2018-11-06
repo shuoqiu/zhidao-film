@@ -1,0 +1,11 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="content">
+    <import src="../template/movietpl"/>
+    <template is="movies" data="{{movies}}"/>
+  </view>
+
+  <view class="bodyLoading">
+    <loading hidden="{{hidden}}" bindchange="{{loadingChange}}">
+        拼命加载中...
+    </loading>
+  </view>

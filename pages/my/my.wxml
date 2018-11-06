@@ -1,0 +1,10 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  
+
+  <button bindtap="toOtherApp">跳转其他app</button>
+</view>
