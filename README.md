@@ -10,5 +10,5 @@
   ![推荐](http://oalppxaqn.bkt.clouddn.com/%E6%8E%A8%E8%8D%90.jpeg)
   ![内页1](http://oalppxaqn.bkt.clouddn.com/%E4%BE%A0%E7%9B%97.jpeg)
   ![内页2](http://oalppxaqn.bkt.clouddn.com/%E9%98%BF%E7%94%98.jpeg)
-  ![二维码](http://oalppxaqn.bkt.clouddn.com/%E7%9B%B4%E6%8D%A3%E7%94%B5%E5%BD%B1%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg)
+  ![小程序码](http://phr0tzz48.bkt.clouddn.com/gh_e4ea2b10e96d_258.jpg)
 
